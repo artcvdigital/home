@@ -9,11 +9,11 @@ var url = {
 		"before": "bt-services",
 		"after": "bt-services",
 		"layerbefore": "layer-home",
-		"layerafter": "layer-home"
+		"layerafter": "layer-home",
 	},
 	"home": {
 		"current": "content-creativity",
-		"before": "content-creativity",
+		"before": "content-inspiration",
 		"css": {
 			"button": {
 				"focus": "background: rgb(255,0,0); transition: .2s;",
@@ -44,5 +44,11 @@ var url = {
 	"about": {
 		"current": "content-credits",
 		"before": "content-credits"
+	},
+	"tablog": "bt-home",
+	"panelarrows": {
+		"current": 0,
+		"max": 2,
+		"domain": "input-home"
 	}
 }
