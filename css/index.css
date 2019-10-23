@@ -1,0 +1,270 @@
+/*
+	@media screen and (max-width: 1024px){
+	}
+	@media screen and (max-width: 768px){
+	}
+	@media screen and (max-width: 480px){
+	}
+
+	:root{
+	}
+ */
+::-webkit-scrollbar{
+	width: 6px;
+	height: 6px;
+	background: rgb(51,51,51);
+	border-radius: 2px;
+}
+::-webkit-scrollbar-thumb{
+	background: rgb(255,0,0);
+}
+*{
+	margin: 0;
+	padding: 0;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	box-sizing: border-box;
+	cursor: default;
+}
+html{
+	background: rgb(255,255,255);
+	overflow: hidden;
+}
+html,
+html *{
+	font-family: 'Rajdhani', sans-serif;
+	color: rgb(60,60,60);
+}
+.this-r{
+	position: relative;
+}
+#site{
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 8em calc(100vh - 8em);
+}
+#nav .this-r{
+	height: 8em;
+	display: grid;
+	grid-template-columns: 20% repeat(5, 1fr) 20%;
+}
+#section{
+	height: calc(100vh - 8em);
+	display: grid;
+	grid-template-columns: 20% 80%;
+}
+.menu-general-field{
+	display: flex;
+	justify-content: center;
+}
+#logo-main{
+	height: 3em;
+}
+.f-end{
+	align-self: flex-end;
+}
+.bt-main-menu{
+	width: calc(100% - 1em);
+	height: 2em;
+	font-size: 1.2em;
+	font-weight: 800;
+	color: rgb(50,50,50);
+	text-underline-position: under;
+	background: transparent;
+	border: none;
+	position: relative;
+	cursor: pointer;
+	transition: .1s;
+}
+.bt-main-menu:hover{
+	color: rgb(255,0,0);
+	font-weight: 800;
+	transform: scale(1.4,1.4);
+}
+.bt-main-menu:focus{
+	outline: none;
+}
+#bt-about{
+	font-size: 1.4em;
+	font-weight: 600;
+}
+#sub-field-left{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#left-list-group{
+	width: 100%;
+}
+.border-res-main-bt-home{
+	width: 100%;
+	margin: 1em 0;
+	border: 4px double rgb(220,220,220);
+	border-radius: 50%;
+	transition: .4s;
+	cursor: pointer;
+}
+#bd-li-bt-home-a{
+	border: 4px solid rgb(255,0,0);
+}
+.li,
+.li-gallery-filter{
+	width: 100%;
+	font-weight: 800;
+	text-align: right;
+	display: block !important;
+	cursor: pointer;
+}
+.li:focus,
+.li-gallery-filter:focus{
+	outline: none;
+}
+#li-bt-home-a{
+	background: rgb(255,0,0);
+}
+.li-bt{
+	width: 2.4em;
+	height: 2.4em;
+	font-size: 1em;
+	font-weight: 600;
+	color: rgb(255,255,255);
+	text-align: center;
+	background: rgb(220,220,220);
+	border: 4px solid rgba(255,255,255);
+	border-radius: 50%;
+	position: relative;
+	transition: .4s;
+}
+.li-bt:hover{
+	background: rgb(255,0,0);
+	transform: rotate(-360deg) scale(1.5,1.5);
+	z-index: 1;
+}
+.li-txt{
+	margin: .4em 0;
+	padding: .2em;
+	font-size: 1.1em;
+	background: none;
+	border: none;
+	transition: .2s;
+}
+.li-txt:hover{
+	color: rgb(255,0,0);
+}
+.li-group{
+	display: none;
+}
+#sub-bt-home{
+	float: right;
+	clear: both;
+}
+.li-group > div{
+	width: 100%;
+}
+.li-group h1{
+	text-align: right;
+	font-size: 1.2em;
+	font-weight: 200;
+}
+.content-field{
+	height: calc(100vh - 8em);
+	overflow-y: auto;
+	display: none;
+}
+.end-content{
+	height: calc(100vh - 8em);
+	padding: 4em 6em 8em;
+	display: none;
+}
+.just-home-content-rule{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.just-home-content-rule > div{
+	text-align: center;
+}
+.company-values{
+	font-size: 8em;
+	position: relative;
+}
+.company-values::before,
+.company-values::after{
+	transform: rotateX(180deg) translate(0,.45em);
+	position: absolute;
+	line-height: 1em;
+	left: 0;
+	z-index: -1;
+}
+.company-values::before{
+	width: max-content;
+	height: max-content;
+	color: rgba(0,0,0,.25);
+	top: calc(100% + 3px);
+}
+#value-of-a::before{
+	content: 'creatividad';
+}
+#value-of-b::before{
+	content: 'inspiración';
+}
+#value-of-c::before{
+	content: 'simplicidad';
+}
+.company-values::after{
+	content: '';
+	width: 100%;
+	height: 100%;
+	background: -webkit-linear-gradient(
+		bottom,
+		transparent,
+		rgba(255,255,255,.3),
+		rgb(255,255,255) 55%);
+	top: 100%;
+}
+.caption-for-cv{
+	font-size: 1em;
+	margin-top: 1em;
+}
+.just-home-content-rule img{
+	max-width: 100%;
+	height: 40vh;
+}
+#content-creativity,
+#content-inspiration,
+#content-simplicity{
+	max-width: 80%;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1366px){
+	#site{
+		grid-template-rows: 6em calc(100vh - 6em);
+	}
+	#nav .this-r{
+		height: 6em;
+		grid-template-columns: 20% repeat(5, 1fr) 20%;
+	}
+	#section{
+		height: calc(100vh - 6em);
+	}
+	.content-field{
+		height: calc(100vh - 6em);
+	}
+	.sb-only-home{
+		height: calc(100vh - 6em);
+	}
+}
