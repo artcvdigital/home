@@ -6,8 +6,14 @@ var url = {
 		"rem": "transform: translate(0,-3em); opacity: 0; transition: .2s;"
 	},
 	"mainmenu": {
-		"before": "bt-services",
-		"after": "bt-services",
+		// "before": "bt-services",
+		// "after": "bt-services",
+
+		// For work on!
+		"before": "bt-about",
+		"after": "bt-about",
+
+
 		"layerbefore": "layer-home",
 		"layerafter": "layer-home",
 	},
@@ -25,10 +31,17 @@ var url = {
 			}
 		}
 	},
+	// "services": {
+	// 	"current": "content-service-description",
+	// 	"before": "content-service-description"
+	// },
+
+	// For work on!
 	"services": {
-		"current": "content-service-description",
-		"before": "content-service-description"
+		"current": "content-included-into-service",
+		"before": "content-included-into-service"
 	},
+
 	"gallery": {
 		"current": "content-product-catalogue",
 		"before": "content-product-catalogue"

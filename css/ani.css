@@ -123,3 +123,20 @@
 #s-table-description tr:nth-child(1){
 	animation: none;
 }
+#business-values-grid > div:hover .bv-icon{
+	animation: a_hover_bv_icon .8s infinite ease-in-out;
+}
+@keyframes a_hover_bv_icon{
+	from{
+		transform: rotate(0deg);
+	}
+	50%{
+		transform: rotate(0deg);
+	}
+	75%{
+		transform: rotate(180deg) scale(1.2,1.2);
+	}
+	to{
+		transform: rotate(360deg) scale(1,1);
+	}
+}

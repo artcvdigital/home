@@ -112,12 +112,13 @@
 
 // events
 	window.oncontextmenu = ()=>{
-		return false;
+		// return false;
 	};
 
 	window.onload = ()=>{
 		setTimeout(()=>{
-			d.getElementById('bt-home').click();
+			// d.getElementById('bt-home').click();
+			d.getElementById('bt-services').click();
 		}, 99);
 		listenTo();
 	};
