@@ -140,3 +140,53 @@
 		transform: rotate(360deg) scale(1,1);
 	}
 }
+.collapsible-menu{
+	animation: a_collapsible_menu .4s ease-in-out;
+}
+@keyframes a_collapsible_menu{
+	from{
+		transform: translate(3em,0);
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}
+	60%{
+		transform: translate(-1em,0);
+	}
+}
+.bt-swipe-to:focus{
+	animation: a_bt_swipe_to_focus .2s ease-out;
+}
+@keyframes a_bt_swipe_to_focus{
+	50%{
+		transform: scale(.4);
+	}
+}
+.bt-swipe-to:focus::before{
+	animation: bt_swipe_to_focus_before .4s ease-out forwards;
+}
+@keyframes bt_swipe_to_focus_before{
+	99.99%{
+		transform: scale(3);
+		opacity: 0;
+	}
+	to{
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+.swipe-flag{
+	animation: a_swipe_flag .3s ease-in-out;
+}
+@keyframes a_swipe_flag{
+	from{
+		transform: scale(.95);
+		opacity: 0;
+	}
+}
+.card-swipe-progress{
+	animation: a_card_swipe_progress .4s ease-in-out;
+}
+@keyframes a_card_swipe_progress{
+}

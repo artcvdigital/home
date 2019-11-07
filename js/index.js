@@ -1,10 +1,14 @@
 // boxes
-	var d, btMainMenu, layer, on, off, li, keyName, saveKeyName;
+	var d, btMainMenu, layer, on, off, li, keyName, saveKeyName, txtLauncherShortcut,
+			clientLabelBox, btSwipe;
 
 // file
 	d = document;
 	btMainMenu = d.getElementsByClassName('bt-main-menu');
 	li = d.getElementsByClassName('li');
+	txtLauncherShortcut = d.getElementsByClassName('txt-launcher-shortcut');
+	clientLabelBox = d.getElementsByClassName('client-fb-label-wrapper');
+	btSwipe = d.getElementsByClassName('bt-swipe-to');
 
 // methods
 	function btMainMenuFn(){
@@ -67,11 +71,6 @@
 		d.addEventListener('keydown', ()=>{
 		  keyName = event.key;
 		  saveKeyName = keyName;
-
-/************************************/
-// console.log(keyName);
-/************************************/
-
 			if(keyName == 1 || keyName == 'i'  || keyName == 'I'){
 				d.getElementById('bt-home').click();
 			}else if(keyName == 2	|| keyName == 's'	|| keyName == 'S'){
@@ -86,13 +85,90 @@
 				d.getElementById('bt-about').click();
 			}else if(keyName == 'Tab'){
 				d.getElementById(url.tablog).click();
-			}else{
-				neededShortcuts();
+			}else if(keyName == 'ArrowLeft'){
+				if(url.mainmenu.after == 'bt-hire'){
+					btSwipe[0].click();
+					d.getElementById('client-public-opinions').scrollIntoView();
+				};
+			}else if(keyName == 'ArrowRight'){
+				if(url.mainmenu.after == 'bt-hire'){
+					btSwipe[1].click();
+					d.getElementById('client-public-opinions').scrollIntoView();
+				};
+			}else if(keyName == ' '){
+				console.log('La tecla "Espacio" aún no ha sido configurada');
+			}else if(keyName == 'b' || keyName == 'B'){
+				console.log('La tecla "B" aún no ha sido configurada');
+			}else if(keyName == 'Enter' || keyName == 'Enter'){
+  		  launchFullScreen();
+			}else if(keyName == 'r' || keyName == 'R'){
+				var answer = confirm('La página será recargada, desea continuar?');
+				if(answer){
+					location.reload();
+				};
 			};
 		});
 	};
 
-	function neededShortcuts(){
+	function exchancheCards(){
+		url.swipe.bt = event.currentTarget.id;
+		url.swipe.max = clientLabelBox.length-1;
+		d.getElementsByClassName('swipe-flag')[url.swipe.index].style = 'display: grid; transform: scale(.95); opacity: 0; transition: .3s;';
+		if(url.swipe.bt == 'bt-swipe-left'){
+				setTimeout(()=>{
+					d.getElementsByClassName('swipe-flag')[url.swipe.index].style = 'display: none;';
+					if(url.swipe.index != 0){
+						url.swipe.index = url.swipe.index - 1;
+					}else if(url.swipe.index == 0){
+						url.swipe.index = url.swipe.max;
+					};
+					d.getElementsByClassName('swipe-flag')[url.swipe.index].style = 'display: grid;';
+				}, 200);
+			btSwipe[1].style = 'background: rgba(60,60,60,.2) url(media/bt-swipe-right.png) center no-repeat; background-size: 40% 40%;';
+			btSwipe[0].focus();
+			btSwipe[0].style = 'background: rgb(250,0,0) url(media/bt-swipe-left.png) center no-repeat; background-size: 40% 40%; transform: scale(.8);';
+			setTimeout(()=>{
+				btSwipe[0].style = 'background: rgb(220,220,220) url(media/bt-swipe-left.png) center no-repeat; background-size: 40% 40%;';
+				btSwipe[0].blur();
+			}, 200);
+		}else if(url.swipe.bt == 'bt-swipe-right'){
+			setTimeout(()=>{
+				d.getElementsByClassName('swipe-flag')[url.swipe.index].style = 'display: none;';
+				if(url.swipe.index < url.swipe.max){
+					url.swipe.index = url.swipe.index + 1;
+				}else if(url.swipe.index == url.swipe.max){
+					url.swipe.index = 0;
+				};
+				d.getElementsByClassName('swipe-flag')[url.swipe.index].style = 'display: grid;';
+			}, 200);
+			btSwipe[0].style = 'background: rgba(60,60,60,.2) url(media/bt-swipe-left.png) center no-repeat; background-size: 40% 40%;';
+			btSwipe[1].focus();
+			btSwipe[1].style = 'background: rgb(250,0,0) url(media/bt-swipe-right.png) center no-repeat; background-size: 40% 40%; transform: scale(.8);';
+			setTimeout(()=>{
+				btSwipe[1].style = 'background: rgb(220,220,220) url(media/bt-swipe-right.png) center no-repeat; background-size: 40% 40%;';
+				btSwipe[1].blur();
+			}, 200);
+		};
+	};
+
+	function txtLauncherShortcutFn(){
+		var target = event.currentTarget.id;
+		if(target == 'req-launch-subscribe-box'){
+		}else if(target == 'go-to-hire'){
+			url.hire.current = 'content-fill-out-application';
+			d.getElementById('bt-hire').click();
+		}else if(target == 'go-to-upt-request'){
+			url.hire.current = 'content-request-for-updating-information';
+			d.getElementById('bt-hire').click();
+		}else if(target == 'go-to-pricing'){
+			url.pricing.current = 'content-details';
+			d.getElementById('bt-pricing').click();
+		}else if(target == 'go-to-feedback-form-field'){
+			url.about.current = 'content-feedback';
+			d.getElementById('bt-about').click();
+		}else if(target == 'go-to-google-signup'){
+			console.info(`It's not enabled yet...`);
+		};
 	};
 
 	function listenTo(){
@@ -106,19 +182,57 @@
 				btLeftPanel();
 			});
 		};
-		keyListen();
+		for(var i=0; i<txtLauncherShortcut.length; i++){
+			txtLauncherShortcut[i].addEventListener('click', ()=>{
+				txtLauncherShortcutFn();
+			});
+		};
+		for(var i=0; i<btSwipe.length; i++){
+			btSwipe[i].addEventListener('click', ()=>{
+				exchancheCards();
+			});
+		};
+		d.getElementById('logo-main').addEventListener('click', ()=>{
+			launchFullScreen();
+		});
+		// keyListen();
 	};
 
-
+	function launchFullScreen(){
+	  if((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)){
+	    if(document.documentElement.requestFullScreen){
+	      document.documentElement.requestFullScreen();
+	    }else if(document.documentElement.mozRequestFullScreen){
+	      document.documentElement.mozRequestFullScreen();
+	    }else if(document.documentElement.webkitRequestFullScreen){
+	      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+	    };
+	  }else {
+	    if(document.cancelFullScreen){
+	      document.cancelFullScreen();
+	    }else if(document.mozCancelFullScreen){
+	      document.mozCancelFullScreen();
+	    }else if(document.webkitCancelFullScreen){
+	      document.webkitCancelFullScreen();
+	    };
+	  };
+	};
 // events
-	window.oncontextmenu = ()=>{
+	// window.oncontextmenu = ()=>{
 		// return false;
-	};
+	// };
 
 	window.onload = ()=>{
 		setTimeout(()=>{
 			// d.getElementById('bt-home').click();
-			d.getElementById('bt-services').click();
+			// url.pricing.current = 'content-payment-methods';
+			// d.getElementById('bt-pricing').click();
+			url.hire.current = 'content-request-for-updating-information';
+			url.hire.current = 'content-fill-out-application';
+			d.getElementById('bt-hire').click();
 		}, 99);
 		listenTo();
 	};
+
+
+

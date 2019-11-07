@@ -6,16 +6,10 @@ var url = {
 		"rem": "transform: translate(0,-3em); opacity: 0; transition: .2s;"
 	},
 	"mainmenu": {
-		// "before": "bt-services",
-		// "after": "bt-services",
-
-		// For work on!
 		"before": "bt-about",
 		"after": "bt-about",
-
-
-		"layerbefore": "layer-home",
-		"layerafter": "layer-home",
+		"layerbefore": "layer-about",
+		"layerafter": "layer-about",
 	},
 	"home": {
 		"current": "content-creativity",
@@ -31,17 +25,10 @@ var url = {
 			}
 		}
 	},
-	// "services": {
-	// 	"current": "content-service-description",
-	// 	"before": "content-service-description"
-	// },
-
-	// For work on!
 	"services": {
-		"current": "content-included-into-service",
-		"before": "content-included-into-service"
+		"current": "content-service-description",
+		"before": "content-service-description"
 	},
-
 	"gallery": {
 		"current": "content-product-catalogue",
 		"before": "content-product-catalogue"
@@ -59,9 +46,15 @@ var url = {
 		"before": "content-credits"
 	},
 	"tablog": "bt-home",
-	"panelarrows": {
-		"current": 0,
-		"max": 2,
-		"domain": "input-home"
+	"scroll": {
+		"up": "",
+		"down": ""
+	},
+	"swipe": {
+		"bt": "",
+		"current": "movible-card-a",
+		"before": "movible-card-b",
+		"max": 0,
+		"index": 0
 	}
 }
